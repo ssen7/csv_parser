@@ -51,7 +51,7 @@ while doContinue:
             with open(save_file_name + '.json', 'w') as outfile:
                 json.dump(jsondata, outfile, indent=4)
 
-        doContinueQueryYN = input('Do you want to continue query? (Y/N) ')
+        doContinueQueryYN = input('Do you want to start new query? (Y/N) ')
 
         if doContinueQueryYN.lower() == 'n':
             doQuery = 'n'
