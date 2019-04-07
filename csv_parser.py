@@ -1,7 +1,7 @@
 import json
 import time
 
-start = time.time()
+# start = time.time()
 
 
 def csv_reader(filepath):
@@ -63,7 +63,9 @@ def search_multiple(data, keyL, valueL):
 
 
 def return_rows(data, indices):
-
+    '''
+    Return rows from data based on indices.
+    '''
     rowL = []
     if indices == None:
         return None
@@ -77,7 +79,27 @@ def return_rows(data, indices):
     return rowL
 
 
-# data, _, _ = csv_reader('los-angeles-parking-citations/parking-citations.csv')
+def queryData(data, keys, values):
+
+    indices = search_multiple(data, keys, values)
+    return return_rows(data, indices)
+
+
+def subsetData(data, indices):
+    newdata = {k: [] for k in data.keys()}
+    for key in data.keys():
+        for i in indices:
+            print(data[key][i])
+            newdata[key] += [data[key][i]]
+
+    return newdata
+
+
+# data, _, _, _, _ = csv_reader('titanic.csv')
+
+# newdata = subsetData(data, [1, 2])
+
+# print(newdata)
 
 # print('Time taken : {} s'.format(time.time() - start))
 
@@ -93,6 +115,8 @@ def return_rows(data, indices):
 
 # print('Time taken : {} s'.format(time.time() - start))
 
+# Additional Stuff
 # multiple queries #done
-# what if there are more rows like > 500,
-# what if header names are repeated
+# what if there are more rows like > 500, is it efficient
+# check if header names are repeated
+#
