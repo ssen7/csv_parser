@@ -5,7 +5,9 @@ start = time.time()
 
 
 def csv_reader(filepath):
-
+    '''
+    Reads csv files.
+    '''
     data_dict = {}
 
     with open(filepath) as file:
@@ -34,7 +36,9 @@ def csv_reader(filepath):
 
 
 def search(data, key, value):
-
+    '''
+    Searches one column of data.
+    '''
     try:
         indices = [i for i, x in enumerate(data[key]) if x == value]
         return indices
@@ -43,6 +47,9 @@ def search(data, key, value):
 
 
 def search_multiple(data, keyL, valueL):
+    '''
+    Searches through multiple columns of data.
+    '''
     try:
         indexList = []
         for key, value in zip(keyL, valueL):
